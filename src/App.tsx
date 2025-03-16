@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Users from './pages/Users';
 import Navbar from './components/Navbar';
+import Tasks from './pages/Tasks';
 
 // Define route component type
 // type RouteComponent = FC;
@@ -23,6 +24,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/tasks" element={<Tasks />} />
       </Routes>
     </BrowserRouter>
   );

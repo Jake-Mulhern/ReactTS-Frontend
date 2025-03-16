@@ -7,24 +7,34 @@ const Navbar: FC<NavbarProps> = ({ className = '' }) => {
         <nav className={`navbar ${className}`}>
             <ul className="nav-links">
                 <li>
-                <NavLink 
-                    to="/" 
-                    className={({ isActive }) => 
-                    `nav-link ${isActive ? 'active' : ''}`
-                    }
-                >
-                    Home
-                </NavLink>
+                    <NavLink 
+                        to="/" 
+                        className={({ isActive }) => 
+                            `nav-link ${isActive ? 'active' : ''}`
+                        }
+                    >
+                        Home
+                    </NavLink>
                 </li>
                 <li>
-                <NavLink 
-                    to="/users" 
-                    className={({ isActive }) => 
-                    `nav-link ${isActive ? 'active' : ''}`
-                    }
-                >
+                    <NavLink 
+                        to="/users" 
+                        className={({ isActive }) => 
+                            `nav-link ${isActive ? 'active' : ''}`
+                        }
+                    >
                     Users
-                </NavLink>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/tasks"
+                        className={({ isActive }) => 
+                            `nav-link ${isActive ? 'active' : ''}`
+                        }
+                    >
+                    Tasks
+                    </NavLink>
                 </li>
             </ul>
         </nav>
