@@ -13,3 +13,31 @@
 h1 {
   text-align: center;
 }
+
+.navbar {
+  padding: 1rem;
+  background-color: #333;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link.active {
+  background-color: #555;
+}
+
+.nav-link:hover {
+  background-color: #444;
+}

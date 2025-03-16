@@ -21,4 +21,8 @@ export interface AppProps {
     name: NameModel;
     email: string;
   }
+
+  export interface NavbarProps {
+    className?: string;
+  }
   
