@@ -1,6 +1,5 @@
 // src/App.tsx
-import axios from 'axios';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Users from './pages/Users';
