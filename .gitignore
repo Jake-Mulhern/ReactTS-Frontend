@@ -22,3 +22,57 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Vite output
+dist/
+build/
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# TypeScript configuration files to ignore
+*.tsbuildinfo
+.tsconfig
+!.tsconfig.json
+
+# IDE and editor files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Operating system files
+*.log
+*.tmp
+*.pid
+
+# Package files
+.npmrc
+.pnpm-debug.log
+.pnp/
+.pnp.js
+.lock-wscript
+.yarn-integrity
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.env*
+
+# Vite specific files
+.vite/
+vite.config.js.local
+
+# React and TypeScript files
+*.js
+!_*.js
+.coverage/
+.e2e/
+.jest/
+.next/
+.out/
+.test/
+.typecheck/
+__tests__/
