@@ -1,6 +1,5 @@
 // src/pages/Home.tsx
 import { FC } from 'react';
-import { AppProps } from '../App.types'
 
 
 const Home: FC = () => {

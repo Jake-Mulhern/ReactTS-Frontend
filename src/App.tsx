@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Users from './pages/Users';
 import Navbar from './components/Navbar';
 import Tasks from './pages/Tasks';
+import Login from './pages/Login';
 
 // Define route component type
 // type RouteComponent = FC;
@@ -21,9 +22,10 @@ const App: FC = () => {
     <BrowserRouter>
     <Navbar />
       <Routes>
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/users" element={<Users title={'Users'}/>} />
+        <Route path="/tasks" element={<Tasks title={'Tasks'}/>} />
       </Routes>
     </BrowserRouter>
   );
