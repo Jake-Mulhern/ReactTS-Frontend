@@ -41,3 +41,16 @@ h1 {
 .nav-link:hover {
   background-color: #444;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

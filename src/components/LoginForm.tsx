@@ -1,26 +1,36 @@
-import { useState, FC } from 'react';
+// src/components/LoginForm.tsx
+import { useState, FC, useContext, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../contexts/Authentication';
 
 const LoginForm: FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
-    const [submitted, setSubmitted] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
     const [errorMessageText, setErrorMessageText] = useState<string>('Please enter name and password');
+    const { authenticated, setAuthenticated, user, setUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (authenticated) {
+            navigate('/', { replace: true });
+        }
+    }, [authenticated, navigate]);
 
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
-        setSubmitted(false);
     }
 
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
-        setSubmitted(false);
     }
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         try {
             console.log('Submitting now')
             if (email === "" || password === "") {
@@ -45,8 +55,10 @@ const LoginForm: FC = () => {
                     setError(true);
                     setErrorMessageText('Loging Credentials Incorrect. Try again.');
                 } else {
-                    setSubmitted(true);
+                    setAuthenticated(true);
+                    setUser(loginCreds.data);
                     setError(false);
+                    console.log('should nav here')
                 }
 
             }
@@ -56,11 +68,6 @@ const LoginForm: FC = () => {
 
     }
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        console.log('Clicking now')
-        e.preventDefault();
-        handleSubmit();
-    }
 
     const errorMessage = () => {
         return (
@@ -79,13 +86,14 @@ const LoginForm: FC = () => {
         <div className="form">
             <div>
                 <h1>User Login</h1>
+                <p>{authenticated.toString()}</p>
             </div>
 
             <div className="messages">
                 {errorMessage()}
             </div>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label className="label">Email</label>
                 <input
                     onChange={handleEmail}
@@ -102,7 +110,7 @@ const LoginForm: FC = () => {
                     type="password"
                 />
 
-                <button onClick={handleClick} className="btn" type="submit">
+                <button className="btn" type="submit">
                     Submit
                 </button>
             </form>

@@ -38,3 +38,14 @@ export interface TaskProps {
     description: string;
     completed: boolean;
 }
+
+export interface UserAuthenticationModel {
+    name: {
+        first: string;
+        last: string;
+    },
+    email: string;
+    login: {
+        uuid: string;
+    }
+}
